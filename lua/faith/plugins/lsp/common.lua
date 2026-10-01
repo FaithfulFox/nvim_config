@@ -128,7 +128,7 @@ M.on_attach = function(client_id, bufnr)
 			bufnr
 		)
 	then
-		vim.lsp.inlay_hint.enable(false)
+		vim.lsp.inlay_hint.enable(true)
 		vim.keymap.set("n", "<leader>uh", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({
 				bufnr = bufnr,
@@ -136,27 +136,27 @@ M.on_attach = function(client_id, bufnr)
 		end, { buffer = bufnr, desc = "[t]oggle Inlay [h]ints" })
 	end
 
-	-- if
-	-- 	client
-	-- 	and client_supports_method(
-	-- 		client,
-	-- 		vim.lsp.protocol.Methods.textDocument_codeLens,
-	-- 		bufnr
-	-- 	)
-	-- then
-	-- 	vim.lsp.codelens.enable(true, { bufnr = bufnr })
-	-- 	local auto_refresh_codelens =
-	-- 		vim.api.nvim_create_augroup("RefreshCodelens", { clear = false })
-	-- 	vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "BufWritePost" }, {
-	-- 		group = auto_refresh_codelens,
-	-- 		buffer = bufnr,
-	-- 		callback = function()
-	-- 			vim.lsp.codelens.enable(true, {
-	-- 				bufnr = bufnr,
-	-- 			})
-	-- 		end,
-	-- 	})
-	-- end
+	if
+		client
+		and client_supports_method(
+			client,
+			vim.lsp.protocol.Methods.textDocument_codeLens,
+			bufnr
+		)
+	then
+		vim.lsp.codelens.enable(true, { bufnr = bufnr })
+		local auto_refresh_codelens =
+			vim.api.nvim_create_augroup("RefreshCodelens", { clear = false })
+		vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "BufWritePost" }, {
+			group = auto_refresh_codelens,
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.codelens.enable(true, {
+					bufnr = bufnr,
+				})
+			end,
+		})
+	end
 
 	if
 		client

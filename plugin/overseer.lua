@@ -5,6 +5,9 @@ vim.pack.add(
 
 local function config()
 	local overseer = require("overseer")
+	local task_list = require("overseer.task_list")
+	local TAG = require("overseer.constants").TAG
+	local STATUS = require("overseer.constants").STATUS
 	local wk = require("which-key")
 
 	---@type overseer.Action[]
@@ -76,7 +79,7 @@ local function config()
 			rhs = function()
 				require("overseer").run_task({
 					tags = {
-						require("overseer").TAG.BUILD,
+						TAG.BUILD,
 					},
 				})
 				require("overseer").open({ enter = false })
@@ -88,7 +91,7 @@ local function config()
 			rhs = function()
 				require("overseer").run_task({
 					tags = {
-						require("overseer").TAG.RUN,
+						TAG.RUN,
 					},
 				})
 				require("overseer").open({ enter = false })

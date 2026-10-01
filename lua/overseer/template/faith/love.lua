@@ -57,6 +57,10 @@ return {
 							root_dir,
 						},
 						cwd = root_dir,
+						components = {
+							"unique",
+							"default",
+						},
 					}
 				end,
 			},

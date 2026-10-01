@@ -62,7 +62,7 @@ return {
 			:map(function(spec)
 				return {
 					name = spec.filename,
-					tags = { TAG.RUN },
+					tags = {},
 					builder = function()
 						return {
 							cmd = spec.script_spec.cmd,
