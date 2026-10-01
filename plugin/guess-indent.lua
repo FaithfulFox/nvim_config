@@ -25,6 +25,8 @@ local function load()
 	vim.cmd.packadd("guess-indent.nvim")
 
 	config()
+
+	vim.cmd.GuessIndent()
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {

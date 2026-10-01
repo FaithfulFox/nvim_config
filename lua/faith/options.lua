@@ -71,9 +71,9 @@ vim.opt.foldcolumn = "auto:1"
 
 -- Indentation {
 local indentWidth = 2
-vim.opt.tabstop = indentWidth
+-- vim.opt.tabstop = indentWidth
 -- vim.opt.softtabstop = 0 -- 0 means this is Off
-vim.opt.shiftwidth = indentWidth
+-- vim.opt.shiftwidth = indentWidth
 -- vim.opt.smarttab = true
 -- vim.opt.expandtab = false
 -- vim.opt.smartindent = true
@@ -82,7 +82,7 @@ vim.opt.shiftwidth = indentWidth
 
 vim.opt.linebreak = true
 vim.opt.showbreak = icons.characters.showbreak
-	.. (string.rep(" ", ((indentWidth * 2) - 1) or 0) or "")
+	.. (string.rep(" ", ((vim.o.shiftwidth * 2) - 1) or 0) or "")
 vim.opt.breakat = " ^!@;:,./?([{<>"
 vim.opt.breakindent = true
 vim.opt.breakindentopt = { "shift:0" }

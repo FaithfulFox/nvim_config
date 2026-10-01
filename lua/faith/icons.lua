@@ -217,8 +217,8 @@ local icons = {
 		space = "·",
 		tab = "|->",
 		trail = "×",
-		indent = "┊",
-		indent_focus = "▍",
+		indent = "▎",
+		indent_focus = "▎",
 		showbreak = "▋",
 	},
 	diagnostic = {
