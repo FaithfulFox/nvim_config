@@ -46,4 +46,20 @@ return {
 			}
 		)
 	),
+	s({
+		trig = "@",
+		name = "ingredient",
+		desc = {
+			"Insert ingredient notation.",
+		},
+		docstring = "@{1:name}{{2:quantity}%{3:unit}}{0}",
+	}, fmt("@{}{{{}%{}}}{}", { i(1), i(2), i(3), i(0) })),
+	s({
+		trig = "#",
+		name = "cookware",
+		desc = {
+			"Insert cookware notation.",
+		},
+		docstring = "#{1:name}{{}}{0}",
+	}, fmt("#{}{{}}{}", { i(1), i(0) })),
 }
