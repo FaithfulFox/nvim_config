@@ -89,7 +89,7 @@ kanagawa.setup({
 				TabLineFill = { link = "TabLine" },
 				WinSeparator = { bg = theme.ui.bg, fg = theme.ui.bg_gutter },
 
-				MsgArea = { link = "NormalFloat" },
+				MsgArea = { link = "FloatBorder" },
 
 				String = { fg = theme.syn.string, italic = true },
 

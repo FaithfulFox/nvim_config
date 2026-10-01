@@ -296,6 +296,10 @@
       "rev": "bfa58f4b279d21cb515b28023e1b68ec908584b2",
       "src": "https://github.com/zaldih/themery.nvim"
     },
+    "tiny-cmdline.nvim": {
+      "rev": "d83700b48d8ff5625dbef4029af071db559544e5",
+      "src": "https://github.com/rachartier/tiny-cmdline.nvim"
+    },
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
