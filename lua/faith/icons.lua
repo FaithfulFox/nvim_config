@@ -195,6 +195,9 @@ local icons = {
 		Star = " ",
 		Block = "█",
 		Recording = "󰑋",
+		Link = "󰌹 ",
+		Click = "󰳽 ",
+		Function = "󰡱 ",
 	},
 	debug = {
 		Pause = "",
