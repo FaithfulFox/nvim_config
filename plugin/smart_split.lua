@@ -1,6 +1,6 @@
 vim.pack.add({
 	{
-		src = "https://github.com/mrjones2014/smart-splits.nvim",
+		src = "https://github.com/smart-splits-nvim/smart-splits.nvim",
 		version = vim.version.range("2.x"),
 	},
 }, { load = false })
