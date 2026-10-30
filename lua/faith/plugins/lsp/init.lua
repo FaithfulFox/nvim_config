@@ -17,7 +17,7 @@ local servers = {
 	"jdtls",
 	"superhtml",
 	"jsonls",
-	-- "kotlin_lsp",
+	"kotlin_lsp",
 	"lemminx",
 	"lua_ls",
 	"markdown_oxide",
@@ -171,12 +171,31 @@ if has_lazydev then
 	})
 end
 
-local love2d = require("love2d")
-love2d.setup({
-	path_to_love_bin = "love",
-})
-vim.keymap.set({ "n" }, "<leader>vv", vim.cmd.LoveRun, { desc = "Run Love" })
-vim.keymap.set({ "n" }, "<leader>vs", vim.cmd.LoveStop, { desc = "Stop Love" })
+local find_love = function()
+	if vim.fn.executable("lovec") == 1 then
+		return "lovec"
+	elseif vim.fn.executable("love") == 1 then
+		return "love"
+	elseif vim.fn.executable("love-git") == 1 then
+		return "love-git"
+	end
+	return nil
+end
+
+local love_cmd = find_love()
+if love_cmd ~= nil then
+	local love2d = require("love2d")
+	love2d.setup({
+		path_to_love_bin = love_cmd,
+	})
+	vim.keymap.set({ "n" }, "<leader>vv", vim.cmd.LoveRun, { desc = "Run Love" })
+	vim.keymap.set(
+		{ "n" },
+		"<leader>vs",
+		vim.cmd.LoveStop,
+		{ desc = "Stop Love" }
+	)
+end
 
 local mason = require("mason")
 local blink = require("blink.cmp")
